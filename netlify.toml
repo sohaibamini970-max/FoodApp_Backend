@@ -6,39 +6,24 @@
   node_bundler = "esbuild"
   external_node_modules = ["express", "serverless-http"]
 
-# ─────────────────────────────────────────────
-# API routes — prepend /api so Express sees the full path
-# /api/products → /.netlify/functions/api/api/products
-# Express receives: /api/products ✅
-# ─────────────────────────────────────────────
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api/api/:splat"
   status = 200
   force = true
 
-# ─────────────────────────────────────────────
-# Uploads — Express serves these from /uploads/...
-# /uploads/products/abc.webp → /.netlify/functions/api/uploads/products/abc.webp
-# ─────────────────────────────────────────────
 [[redirects]]
   from = "/uploads/*"
   to = "/.netlify/functions/api/uploads/:splat"
   status = 200
   force = true
 
-# ─────────────────────────────────────────────
-# Health check
-# ─────────────────────────────────────────────
 [[redirects]]
   from = "/health"
   to = "/.netlify/functions/api/health"
   status = 200
   force = true
 
-# ─────────────────────────────────────────────
-# Catch-all — LAST
-# ─────────────────────────────────────────────
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/api/:splat"
