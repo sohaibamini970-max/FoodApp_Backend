@@ -2,7 +2,7 @@
   "name": "foodiehub-backend",
   "version": "1.0.0",
   "private": true,
-  "main": "src/server.js",
+  "main": "api/index.js"
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
