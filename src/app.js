@@ -14,14 +14,7 @@ const app = express();
 // ✅ 2. THEN add middleware
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
-// Handle preflight explicitly for Vercel
-app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type,Authorization,x-cart-session");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.sendStatus(204);
-});
+
 // ── Request logger (helpful for debugging upload) ──
 app.use((req, res, next) => {
   console.log("\n🔵 [REQ]", req.method, req.url);
