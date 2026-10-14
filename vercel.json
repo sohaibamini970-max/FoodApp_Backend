@@ -9,10 +9,17 @@
     "headers": [
         {
             "source": "/api/(.*)",
+            "has": [
+                {
+                    "type": "header",
+                    "key": "origin",
+                    "value": "https://.*\\.vercel\\.app"
+                }
+            ],
             "headers": [
                 {
                     "key": "Access-Control-Allow-Origin",
-                    "value": "https://food-9gjipuit7-internee1.vercel.app"
+                    "value": "https://food-ib7h0m74c-internee1.vercel.app"
                 },
                 {
                     "key": "Access-Control-Allow-Methods",
