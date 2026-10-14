@@ -2,7 +2,7 @@
   "name": "foodiehub-backend",
   "version": "1.0.0",
   "private": true,
-  "main": "api/index.js",
+  "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
@@ -14,6 +14,7 @@
   "license": "ISC",
   "description": "FoodieHub backend API",
   "dependencies": {
+    "@netlify/functions": "^2.8.0",
     "axios": "^1.7.0",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
@@ -26,6 +27,7 @@
     "multer": "^2.4.0",
     "pg": "^8.13.0",
     "resend": "^6.34.1",
+    "serverless-http": "^3.2.0",
     "sharp": "^0.35.5"
   },
   "devDependencies": {

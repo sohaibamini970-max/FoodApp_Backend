@@ -1,0 +1,40 @@
+# ═══════════════════════════════════════════════════════════
+# FoodieHub Backend — Netlify Configuration
+# Deploys Express app as a Netlify Function
+# ═══════════════════════════════════════════════════════════
+
+[build]
+  command = "echo Building Functions"
+  publish = "."
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["express", "serverless-http"]
+
+# ─── Route all /api/* requests to the Express function ───
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# ─── Route /uploads/* to the Express function (serves uploaded images) ───
+[[redirects]]
+  from = "/uploads/*"
+  to = "/.netlify/functions/api/uploads/:splat"
+  status = 200
+  force = true
+
+# ─── Route /health to the Express function ───
+[[redirects]]
+  from = "/health"
+  to = "/.netlify/functions/api/health"
+  status = 200
+  force = true
+
+# ─── Catch-all: send everything else to Express (which has 404 handler) ───
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
