@@ -41,6 +41,7 @@ app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/cart", require("./routes/cartRoutes"));
 app.use("/api/deals", require("./routes/dealRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));
+app.use("/api/orders", require("./routes/orderRoutes"));
 
 app.get("/health", (req, res) => res.json({ ok: true }));
 
