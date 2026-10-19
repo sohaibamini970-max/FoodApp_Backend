@@ -211,7 +211,7 @@ exports.checkout = async (req, res, next) => {
                 status: order.status,
                 created_at: order.created_at,
             },
-            tracking_url: `/orders`,
+            tracking_url: `/orders/${order.order_token}`,
         });
     } catch (err) {
         try { await client.query("ROLLBACK"); } catch { }
