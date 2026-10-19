@@ -11,7 +11,8 @@ const errorHandler = require("./middleware/errorHandler");
 const app = express();
 
 app.use(helmet({ crossOriginResourcePolicy: false }));
-app.use(cors({ origin: "https://food-app-internee1.vercel.app", credentials: true }));
+app.use(cors({ origin: "https://food-app-internee1.vercel.app", credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization", "x-cart-session"], }));
 
 app.use((req, res, next) => {
   console.log("\n🔵 [REQ]", req.method, req.url);
